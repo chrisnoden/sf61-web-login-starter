@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}2FA Ready{% endblock %}
+
+{% block page_title %}2FA Configured Correctly{% endblock %}
+
+{% block body %}
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <div class="w-full flex flex-col justify-center cancel">
+                <h2>2FA Activated</h2>
+                <p class="mt-8">
+                    <a href="{{ url('homepage') }}">BACK TO HOMEPAGE</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+
+            <div>
+                <div class="m-auto text-center content-center h-auto" style="width: 240px;">LOGO GOES HERE</div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">{% block page_title %}Sign in to your account{% endblock %}</h2>
+            </div>
+
+            {% block section %}{% endblock %}
+
+        </div>
+    </div>
+
+{% endblock %}

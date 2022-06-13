@@ -1,0 +1,23 @@
+{% apply spaceless %}
+    <!DOCTYPE html>
+    <html lang="en" class="h-full">
+        <head>
+            <meta charset="UTF-8">
+            <title>{{ site_name }} : {% block title %}Welcome!{% endblock %}</title>
+            {% block stylesheets %}
+                <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+                      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
+                {{ encore_entry_link_tags('app') }}
+            {% endblock %}
+            {% block javascripts %}
+                {{ encore_entry_script_tags('app') }}
+            {% endblock %}
+        </head>
+        <body class="h-full">
+
+            {% block body %}{% endblock %}
+
+        </body>
+    </html>
+{% endapply %}

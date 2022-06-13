@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login : Two Factor Auth{% endblock %}
+
+{% block page_title %}Finish your sign in{% endblock %}
+
+{% block body %}
+    {% if authenticationError %}
+        <div class="mt-6 text-center font-extrabold text-red-600 alert alert-danger">{{ authenticationError|trans(authenticationErrorData, 'SchebTwoFactorBundle') }}</div>
+    {% endif %}
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+
+            <form class="space-y-6" action="{{ checkPathUrl ? checkPathUrl: path(checkPathRoute) }}" method="post">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700"> One Time Password </label>
+                    <div class="mt-1">
+                        <input
+                            id="_auth_code"
+                            class="form-control appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            type="tel"
+                            name="{{ authCodeParameterName }}"
+                            autocomplete="one-time-code"
+                            autofocus
+                            inputmode="numeric"
+                            pattern="[0-9]*"
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Sign in
+                    </button>
+
+                    {# The logout link gives the user a way out if they can't complete two-factor authentication #}
+                    <p class="w-full flex justify-center cancel"><a href="{{ logout }}">{{ "cancel"|trans({}, 'SchebTwoFactorBundle') }}</a></p>
+                </div>
+
+                {% if displayTrustedOption %}
+                    <p class="widget"><label for="_trusted"><input id="_trusted" type="checkbox" name="{{ trustedParameterName }}" /> {{ "trusted"|trans({}, 'SchebTwoFactorBundle') }}</label></p>
+                {% endif %}
+                {% if isCsrfProtectionEnabled %}
+                    <input type="hidden" name="{{ csrfParameterName }}" value="{{ csrf_token(csrfTokenId) }}">
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock %}
