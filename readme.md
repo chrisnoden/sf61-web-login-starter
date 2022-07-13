@@ -6,11 +6,6 @@ the permissions easily enough.
 
 This project was created on MacOS, so the instructions are tested on MacOS.
 
-#### TODO:
-
-1. Basic profile page so you can add 2FA to your user account.
-
-
 ## Development - Getting Up and Running
 
 ### First time working on this project?
